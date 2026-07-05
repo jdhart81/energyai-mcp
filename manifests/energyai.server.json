@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "com.energyaisolution/energyai",
+  "description": "Free energy intelligence for agents: incentives, solar estimates, node scores, installer routing.",
+  "websiteUrl": "https://api.energyaisolution.com",
+  "version": "0.4.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.energyaisolution.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "OPTIONAL. check_incentives, estimate_production, get_node_score, and route_lead need NO key at all. Bearer <ENERGYAI_API_KEY> (register free at https://api.energyaisolution.com/api/v1/merchant/register) unlocks billed tools and earns the 20% route_lead conversion bounty.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
