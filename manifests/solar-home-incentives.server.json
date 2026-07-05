@@ -3,7 +3,7 @@
   "name": "com.energyaisolution/solar-home-incentives",
   "description": "Free solar & home energy tools: estimates, incentives by ZIP, scores, installer routing.",
   "websiteUrl": "https://api.energyaisolution.com/agents",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "remotes": [
     {
       "type": "streamable-http",
@@ -17,5 +17,9 @@
         }
       ]
     }
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/jdhart81/energyai-mcp",
+    "source": "github"
+  }
 }
