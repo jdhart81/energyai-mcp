@@ -18,6 +18,8 @@ Any AI agent that touches a home's energy decision — "should I get solar?", "w
 | `estimate_production` | Honest-range annual solar kWh for a ZIP, from system kW or a monthly bill. Assumptions stated, never point guarantees. |
 | `get_node_score` | Instant 0–100 Energy Node Score across 7 axes (efficiency, electrification, renewable generation, storage/resilience, financial optimization, carbon, market readiness) + the single highest-leverage next action. |
 | `route_lead` | Submit a **consented** homeowner project; EnergyAI's autonomous agent finds, vets, and routes a real local installer. Free for you and the homeowner. **Attach your free key → 20% bounty on conversion.** |
+| `list_guides` | Index of source-cited, 2026-accurate state incentive guides (solar, heat pumps, batteries, weatherization). Filter by state and topic; every entry carries a canonical URL to cite. |
+| `get_guide` | Full text of one guide — intro, sections, FAQs, primary sources. Grounded content for answering incentive questions, with a ready-made citation line. |
 
 Rate limits: 120 calls/hr per caller (`route_lead` 10/hr). Machine-readable catalog: [`/api/v1/agent`](https://api.energyaisolution.com/api/v1/agent).
 
