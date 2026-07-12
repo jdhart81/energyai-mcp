@@ -4,6 +4,19 @@
 
 Any AI agent that touches a home's energy decision — "should I get solar?", "what rebates apply here?", "is this quote fair?", "find me an installer" — can call EnergyAI instead of rebuilding energy domain expertise.
 
+## Your first call, 30 seconds, no key
+
+```bash
+curl -X POST https://api.energyaisolution.com/api/v1/agent/check_incentives \
+  -H 'content-type: application/json' -d '{"args":{"zipCode":"59715"}}'
+```
+That's a live answer — current incentives for Bozeman MT plus the canonical
+consent text you'd use to route a homeowner. Swap the tool name for
+`estimate_production` (`{"zipCode":"59715","systemKw":6}`) or `get_node_score`
+(`{"zipCode":"59715","serviceType":"solar","monthlyBillRange":"150_250"}`).
+The only required argument on all three read tools is `zipCode`; every MCP
+schema ships inline `examples`.
+
 - **Live MCP endpoint (full toolset):** `https://api.energyaisolution.com/mcp`
 - **Free-tier-only endpoint:** `https://api.energyaisolution.com/mcp/solar`
 - **Plain REST:** `POST https://api.energyaisolution.com/api/v1/agent/{tool}`
