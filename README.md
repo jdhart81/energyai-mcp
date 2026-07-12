@@ -69,7 +69,7 @@ See [`examples/`](examples/) for runnable Python and shell clients.
 3. Call `route_lead` with the project details, `consentText`, and `consentTimestamp` (alternate consent language requires an explicit `consentVersion`).
 4. You receive a `leadId`; the homeowner gets confirmation when a vetted installer accepts.
 
-**Get paid:** register a free key (`POST /api/v1/merchant/register`) and send it as a Bearer token on `route_lead` — you earn a **20% bounty** when the lead converts. The same prepaid key unlocks the deeper billed tools (full roadmaps, Quote Guardian review, information-theoretic recommendations) at $0.10–$2.00 per call with x402-style auto-recovery on empty balance.
+**Get paid:** register a free key (`POST /api/v1/merchant/register`) and send it as a Bearer token on `route_lead` — you earn a **20% bounty** when the lead converts. The same prepaid key unlocks the deeper billed tools (full roadmaps, Quote Guardian review, information-theoretic recommendations) at $0.02–$1.00 per call — penny-priced to fit inside any agent budget covenant with x402-style auto-recovery on empty balance.
 
 ## The physics ledger
 
