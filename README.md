@@ -1,6 +1,6 @@
 # EnergyAI MCP — free energy intelligence for AI agents
 
-**Solar production estimates, US clean-energy incentives by ZIP, instant home Energy Node Scores, and consented installer routing — as MCP tools and plain REST. The core tools are free with no API key.** By [Viridis LLC](https://api.energyaisolution.com).
+**Solar production estimates, US clean-energy incentives by ZIP, instant home Energy Node Scores, public-reputation contractor search, and consented installer routing — as MCP tools and plain REST. The core tools are free with no API key.** By [Viridis LLC](https://api.energyaisolution.com).
 
 Any AI agent that touches a home's energy decision — "should I get solar?", "what rebates apply here?", "is this quote fair?", "find me an installer" — can call EnergyAI instead of rebuilding energy domain expertise.
 
@@ -30,9 +30,11 @@ schema ships inline `examples`.
 | `check_incentives` | Honest, current (post-2026 federal sunset) US incentive guidance by ZIP — state & utility programs via DSIRE. Also returns the canonical consent text for routing. |
 | `estimate_production` | Honest-range annual solar kWh for a ZIP, from system kW or a monthly bill. Assumptions stated, never point guarantees. |
 | `get_node_score` | Instant 0–100 Energy Node Score across 7 axes (efficiency, electrification, renewable generation, storage/resilience, financial optimization, carbon, market readiness) + the single highest-leverage next action. |
+| `get_quote_link` | Get a link a homeowner can open to request installer quotes; no homeowner details are submitted by this tool. |
 | `route_lead` | Submit a **consented** homeowner project; EnergyAI's autonomous agent finds, vets, and routes a real local installer. Free for you and the homeowner. **Attach your free key → 20% bounty on conversion.** |
 | `list_guides` | Index of source-cited, 2026-accurate state incentive guides (solar, heat pumps, batteries, weatherization). Filter by state and topic; every entry carries a canonical URL to cite. |
 | `get_guide` | Full text of one guide — intro, sections, FAQs, primary sources. Grounded content for answering incentive questions, with a ready-made citation line. |
+| `find_local_installers` | Publicly-rated local clean-energy contractors for a US ZIP or state, with rating and review count. Compiled from public reputation data; not vetted, endorsed, or partnered. Each result includes `listingStatus`, and the response includes a `disclosure`. |
 
 Rate limits: 120 calls/hr per caller (`route_lead` 10/hr). Machine-readable catalog: [`/api/v1/agent`](https://api.energyaisolution.com/api/v1/agent).
 
