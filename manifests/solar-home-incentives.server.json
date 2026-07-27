@@ -11,7 +11,7 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "OPTIONAL. check_incentives, estimate_production, get_node_score, get_quote_link, route_lead, list_guides, get_guide, and find_local_installers need NO key. Bearer <ENERGYAI_API_KEY> (register free at https://api.energyaisolution.com/api/v1/merchant/register) unlocks billed tools and earns the 20% route_lead conversion bounty.",
+          "description": "OPTIONAL. Eight public tools need no key: check_incentives, estimate_production, get_node_score, get_quote_link, route_lead, list_guides, get_guide, and find_local_installers. Bearer <ENERGYAI_API_KEY> preserves route_lead bounty attribution. Create a key at https://api.energyaisolution.com/agents.",
           "isRequired": false,
           "isSecret": true
         }
