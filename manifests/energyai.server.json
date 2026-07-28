@@ -3,7 +3,7 @@
   "name": "com.energyaisolution/energyai",
   "description": "Free clean-energy tools: incentives, solar estimates, scores, guides, quotes, local installers.",
   "websiteUrl": "https://api.energyaisolution.com",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "remotes": [
     {
       "type": "streamable-http",

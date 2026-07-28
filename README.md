@@ -73,6 +73,12 @@ See [`examples/`](examples/) for runnable Python and shell clients.
 
 **Get paid:** create a free key at [the AI builder page](https://api.energyaisolution.com/agents) and send it as a Bearer token on `route_lead`—you earn a **20% bounty** when the lead converts. The same prepaid key unlocks deeper billed tools (full roadmaps, Quote Guardian review, information-theoretic recommendations) at $0.02–$1.00 per successful call. Add credit and review usage in the [merchant console](https://api.energyaisolution.com/agents/account).
 
+## Free vs paid value
+
+- Free tools handle discovery: ZIP-level incentive guidance, quick scores from supplied facts, estimates, guides, installer discovery, and consented lead routing.
+- Paid tools add persisted property context, input coverage, calculation provenance, gap analysis, quote analysis, unlocked roadmaps, or dataset-scale access. `get_energy_incentives` therefore requires a completed `assessmentId`; use free `check_incentives` for ZIP-only guidance.
+- Failed billed calls are refunded automatically. A locked `get_energy_node_roadmap` response returns the free preview with `charged: false` and does not consume credit.
+
 ## The physics ledger
 
 EnergyAI is operated as a live experiment against the thermodynamic bound on intelligence, **dI/dt ≤ P·D/(k_B·T·ln 2)**: every tool call is metered in *useful bits delivered* and *joules dissipated*, and the ledger is public — [energyaisolution.com/physics](https://api.energyaisolution.com/physics). Estimates are always ranges with stated assumptions; installer matching is consent-gated and enforced by 60+ tested invariants.
