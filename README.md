@@ -1,6 +1,6 @@
 # EnergyAI MCP — free energy intelligence for AI agents
 
-**Solar production estimates, US clean-energy incentives by ZIP, instant home Energy Node Scores, public-reputation contractor search, and consented installer routing — as MCP tools and plain REST. The core tools are free with no API key.** By [Viridis LLC](https://api.energyaisolution.com).
+**Solar production estimates, clean-energy incentives, Energy Node Scores, cited guides, public-reputation contractor search, and consented installer routing—as MCP tools and plain REST. Eight tools are free with no API key.** By [ViridisNorth LLC](https://api.energyaisolution.com).
 
 Any AI agent that touches a home's energy decision — "should I get solar?", "what rebates apply here?", "is this quote fair?", "find me an installer" — can call EnergyAI instead of rebuilding energy domain expertise.
 
@@ -14,8 +14,8 @@ That's a live answer — current incentives for Bozeman MT plus the canonical
 consent text you'd use to route a homeowner. Swap the tool name for
 `estimate_production` (`{"zipCode":"59715","systemKw":6}`) or `get_node_score`
 (`{"zipCode":"59715","serviceType":"solar","monthlyBillRange":"150_250"}`).
-The only required argument on all three read tools is `zipCode`; every MCP
-schema ships inline `examples`.
+ZIP is optional for the assumption-safe estimate and score tools; omitted inputs
+return documented assumptions. Every MCP schema ships inline `examples`.
 
 - **Live MCP endpoint (full toolset):** `https://api.energyaisolution.com/mcp`
 - **Free-tier-only endpoint:** `https://api.energyaisolution.com/mcp/solar`
@@ -30,13 +30,14 @@ schema ships inline `examples`.
 | `check_incentives` | Honest, current (post-2026 federal sunset) US incentive guidance by ZIP — state & utility programs via DSIRE. Also returns the canonical consent text for routing. |
 | `estimate_production` | Honest-range annual solar kWh for a ZIP, from system kW or a monthly bill. Assumptions stated, never point guarantees. |
 | `get_node_score` | Instant 0–100 Energy Node Score across 7 axes (efficiency, electrification, renewable generation, storage/resilience, financial optimization, carbon, market readiness) + the single highest-leverage next action. |
-| `get_quote_link` | Get a link a homeowner can open to request installer quotes; no homeowner details are submitted by this tool. |
-| `route_lead` | Submit a **consented** homeowner project; EnergyAI's autonomous agent finds, vets, and routes a real local installer. Free for you and the homeowner. **Attach your free key → 20% bounty on conversion.** |
+| `get_quote_link` | Return a ready-to-share link into the free assessment; no consent collection required by the calling agent. |
+| `route_lead` | Submit a **consented** homeowner project into EnergyAI's screening and routing workflow. Free for you and the homeowner. **Attach your free key → 20% bounty on conversion.** |
 | `list_guides` | Index of source-cited, 2026-accurate state incentive guides (solar, heat pumps, batteries, weatherization). Filter by state and topic; every entry carries a canonical URL to cite. |
-| `get_guide` | Full text of one guide — intro, sections, FAQs, primary sources. Grounded content for answering incentive questions, with a ready-made citation line. |
-| `find_local_installers` | Publicly-rated local clean-energy contractors for a US ZIP or state, with rating and review count. Compiled from public reputation data; not vetted, endorsed, or partnered. Each result includes `listingStatus`, and the response includes a `disclosure`. |
+| `get_guide` | Full text of one guide — intro, sections, FAQs, primary sources. Harmless slug aliases resolve automatically; missing topics return grounded guidance and suggestions, then distinct-caller demand moves the topic up the publishing queue. |
+| `find_local_installers` | Publicly rated local clean-energy contractors for a US ZIP or state, with rating and review count. Compiled from public reputation data; not vetted, endorsed, or partnered. Each result includes `listingStatus`, and the response includes a `disclosure`. |
 
 Rate limits: 120 calls/hr per caller (`route_lead` 10/hr). Machine-readable catalog: [`/api/v1/agent`](https://api.energyaisolution.com/api/v1/agent).
+Every successful free response includes a `builderActivation` object with a tracked production-key URL and the immediate next commercial call.
 
 ## Quickstart
 
@@ -69,9 +70,16 @@ See [`examples/`](examples/) for runnable Python and shell clients.
 1. Call `check_incentives` — the response includes `consentTextForRouting`, the canonical consent text.
 2. Show it to your user verbatim; record their agreement + timestamp.
 3. Call `route_lead` with the project details, `consentText`, and `consentTimestamp` (alternate consent language requires an explicit `consentVersion`).
-4. You receive a `leadId`; the homeowner gets confirmation when a vetted installer accepts.
+4. You receive a `leadId`; the homeowner gets confirmation as the screening and routing workflow progresses.
 
-**Get paid:** register a free key (`POST /api/v1/merchant/register`) and send it as a Bearer token on `route_lead` — you earn a **20% bounty** when the lead converts. The same prepaid key unlocks the deeper billed tools (full roadmaps, Quote Guardian review, information-theoretic recommendations) at $0.02–$1.00 per call — penny-priced to fit inside any agent budget covenant with x402-style auto-recovery on empty balance.
+**Get paid:** create a free key at [the AI builder page](https://api.energyaisolution.com/agents) and send it as a Bearer token on `route_lead`—you earn a **20% bounty** when the lead converts. Each new key includes three bounded commercial trial calls. Builder is $19/month with $20 in tool credit renewed monthly; prepaid-only use remains available. Review billing and usage in the [merchant console](https://api.energyaisolution.com/agents/account).
+
+## Free vs paid value
+
+- Free tools handle discovery: ZIP-level incentive guidance, quick scores from supplied facts, estimates, guides, installer discovery, and consented lead routing.
+- Start paid activation with `bootstrap_energy_project` ($0.10, covered by the no-card trial): one postal code creates a persisted project, provisional score, coverage map, and reusable `assessmentId`.
+- Paid tools add persisted property context, input coverage, calculation provenance, gap analysis, quote analysis, unlocked roadmaps, or dataset-scale access. `get_energy_incentives` therefore requires a completed `assessmentId`; use free `check_incentives` for ZIP-only guidance.
+- Failed billed calls restore the charge or trial call automatically. A locked `get_energy_node_roadmap` response returns the free preview with `charged: false` and does not consume credit.
 
 ## The physics ledger
 
@@ -83,4 +91,4 @@ Registry manifests for both servers are in [`manifests/`](manifests/). This repo
 
 ## License
 
-Documentation and examples: MIT. The hosted service is © Viridis LLC.
+Documentation and examples: MIT. The hosted service is © ViridisNorth LLC.
