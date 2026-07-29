@@ -37,6 +37,7 @@ return documented assumptions. Every MCP schema ships inline `examples`.
 | `find_local_installers` | Publicly rated local clean-energy contractors for a US ZIP or state, with rating and review count. Compiled from public reputation data; not vetted, endorsed, or partnered. Each result includes `listingStatus`, and the response includes a `disclosure`. |
 
 Rate limits: 120 calls/hr per caller (`route_lead` 10/hr). Machine-readable catalog: [`/api/v1/agent`](https://api.energyaisolution.com/api/v1/agent).
+Every successful free response includes a `builderActivation` object with a tracked production-key URL and the immediate next commercial call.
 
 ## Quickstart
 
@@ -76,6 +77,7 @@ See [`examples/`](examples/) for runnable Python and shell clients.
 ## Free vs paid value
 
 - Free tools handle discovery: ZIP-level incentive guidance, quick scores from supplied facts, estimates, guides, installer discovery, and consented lead routing.
+- Start paid activation with `bootstrap_energy_project` ($0.10, covered by the no-card trial): one postal code creates a persisted project, provisional score, coverage map, and reusable `assessmentId`.
 - Paid tools add persisted property context, input coverage, calculation provenance, gap analysis, quote analysis, unlocked roadmaps, or dataset-scale access. `get_energy_incentives` therefore requires a completed `assessmentId`; use free `check_incentives` for ZIP-only guidance.
 - Failed billed calls restore the charge or trial call automatically. A locked `get_energy_node_roadmap` response returns the free preview with `charged: false` and does not consume credit.
 

@@ -3,7 +3,7 @@
   "name": "com.energyaisolution/solar-home-incentives",
   "description": "Free solar and home-energy tools: incentives, estimates, scores, guides, quotes, installers.",
   "websiteUrl": "https://api.energyaisolution.com/agents",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "remotes": [
     {
       "type": "streamable-http",
@@ -11,7 +11,7 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "OPTIONAL. Eight public tools need no key. A production key includes three commercial trial calls and preserves route_lead bounty attribution. Builder is $19/month with $20 monthly tool credit. Start at https://api.energyaisolution.com/agents.",
+          "description": "OPTIONAL. Eight public tools need no key. Every free result links to production-key activation. A new key includes three commercial trials; bootstrap_energy_project creates persisted context in one call. Builder is $19/month with $20 monthly tool credit.",
           "isRequired": false,
           "isSecret": true
         }
