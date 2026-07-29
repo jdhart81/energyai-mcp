@@ -3,7 +3,7 @@
   "name": "com.energyaisolution/energyai",
   "description": "Free clean-energy tools: incentives, solar estimates, scores, guides, quotes, local installers.",
   "websiteUrl": "https://api.energyaisolution.com",
-  "version": "0.7.0",
+  "version": "0.9.0",
   "remotes": [
     {
       "type": "streamable-http",
@@ -11,7 +11,7 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "OPTIONAL. Eight public tools need no key: check_incentives, estimate_production, get_node_score, get_quote_link, route_lead, list_guides, get_guide, and find_local_installers. Bearer <ENERGYAI_API_KEY> unlocks billed tools and preserves route_lead bounty attribution. Create and fund a key at https://api.energyaisolution.com/agents.",
+          "description": "OPTIONAL. Eight public tools need no key. A production key includes three commercial trial calls, unlocks billed tools, and preserves route_lead bounty attribution. Builder is $19/month with $20 monthly tool credit. Start at https://api.energyaisolution.com/agents.",
           "isRequired": false,
           "isSecret": true
         }

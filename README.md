@@ -33,7 +33,7 @@ return documented assumptions. Every MCP schema ships inline `examples`.
 | `get_quote_link` | Return a ready-to-share link into the free assessment; no consent collection required by the calling agent. |
 | `route_lead` | Submit a **consented** homeowner project into EnergyAI's screening and routing workflow. Free for you and the homeowner. **Attach your free key → 20% bounty on conversion.** |
 | `list_guides` | Index of source-cited, 2026-accurate state incentive guides (solar, heat pumps, batteries, weatherization). Filter by state and topic; every entry carries a canonical URL to cite. |
-| `get_guide` | Full text of one guide — intro, sections, FAQs, primary sources. Grounded content for answering incentive questions, with a ready-made citation line. |
+| `get_guide` | Full text of one guide — intro, sections, FAQs, primary sources. Harmless slug aliases resolve automatically; missing topics return grounded guidance and suggestions, then distinct-caller demand moves the topic up the publishing queue. |
 | `find_local_installers` | Publicly rated local clean-energy contractors for a US ZIP or state, with rating and review count. Compiled from public reputation data; not vetted, endorsed, or partnered. Each result includes `listingStatus`, and the response includes a `disclosure`. |
 
 Rate limits: 120 calls/hr per caller (`route_lead` 10/hr). Machine-readable catalog: [`/api/v1/agent`](https://api.energyaisolution.com/api/v1/agent).
@@ -71,13 +71,13 @@ See [`examples/`](examples/) for runnable Python and shell clients.
 3. Call `route_lead` with the project details, `consentText`, and `consentTimestamp` (alternate consent language requires an explicit `consentVersion`).
 4. You receive a `leadId`; the homeowner gets confirmation as the screening and routing workflow progresses.
 
-**Get paid:** create a free key at [the AI builder page](https://api.energyaisolution.com/agents) and send it as a Bearer token on `route_lead`—you earn a **20% bounty** when the lead converts. The same prepaid key unlocks deeper billed tools (full roadmaps, Quote Guardian review, information-theoretic recommendations) at $0.02–$1.00 per successful call. Add credit and review usage in the [merchant console](https://api.energyaisolution.com/agents/account).
+**Get paid:** create a free key at [the AI builder page](https://api.energyaisolution.com/agents) and send it as a Bearer token on `route_lead`—you earn a **20% bounty** when the lead converts. Each new key includes three bounded commercial trial calls. Builder is $19/month with $20 in tool credit renewed monthly; prepaid-only use remains available. Review billing and usage in the [merchant console](https://api.energyaisolution.com/agents/account).
 
 ## Free vs paid value
 
 - Free tools handle discovery: ZIP-level incentive guidance, quick scores from supplied facts, estimates, guides, installer discovery, and consented lead routing.
 - Paid tools add persisted property context, input coverage, calculation provenance, gap analysis, quote analysis, unlocked roadmaps, or dataset-scale access. `get_energy_incentives` therefore requires a completed `assessmentId`; use free `check_incentives` for ZIP-only guidance.
-- Failed billed calls are refunded automatically. A locked `get_energy_node_roadmap` response returns the free preview with `charged: false` and does not consume credit.
+- Failed billed calls restore the charge or trial call automatically. A locked `get_energy_node_roadmap` response returns the free preview with `charged: false` and does not consume credit.
 
 ## The physics ledger
 
