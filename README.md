@@ -1,6 +1,6 @@
 # EnergyAI MCP — free energy intelligence for AI agents
 
-**Solar production estimates, clean-energy incentives, Energy Node Scores, cited guides, public-reputation contractor search, and consented installer routing—as MCP tools and plain REST. Eight tools are free with no API key.** By [ViridisNorth LLC](https://api.energyaisolution.com).
+**Solar production estimates, clean-energy incentives, Energy Node Scores, cited guides, public-reputation contractor search, and consented installer routing—as MCP tools and plain REST. Eight tools are free with no API key.** By [Viridis LLC](https://api.energyaisolution.com).
 
 Any AI agent that touches a home's energy decision — "should I get solar?", "what rebates apply here?", "is this quote fair?", "find me an installer" — can call EnergyAI instead of rebuilding energy domain expertise.
 
@@ -91,4 +91,4 @@ Registry manifests for both servers are in [`manifests/`](manifests/). This repo
 
 ## License
 
-Documentation and examples: MIT. The hosted service is © ViridisNorth LLC.
+Documentation and examples: MIT. The hosted service is © Viridis LLC.
