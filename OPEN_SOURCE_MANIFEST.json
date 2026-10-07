@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "standard": "VOS-OPEN-PAYLOAD-1",
+  "state": "PUBLISHED",
+  "private_source": "jdhart81/energyaisolution",
+  "software_license": "MIT",
+  "documentation_license": "MIT",
+  "include": [
+    ".github/**",
+    ".gitleaks.toml",
+    "LICENSE",
+    "README.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "TRADEMARKS.md",
+    "CODE_OF_CONDUCT.md",
+    "OPEN_SOURCE_MANIFEST.json",
+    "examples/**",
+    "manifests/**"
+  ],
+  "exclude": [
+    "**/.env",
+    "**/.env.*",
+    "!**/.env.example",
+    "**/*.pem",
+    "**/*.key",
+    "**/*keypair*.json",
+    "**/service-account*.json",
+    "*BUSINESS*",
+    "*HANDOFF*",
+    "*DEPLOY*",
+    "*REVENUE*"
+  ],
+  "protected_or_unreleased": [
+    "production trust-root signing and revocation",
+    "certification mark authorization",
+    "settlement, billing and metering",
+    "customer and partner systems and data",
+    "deployment credentials and infrastructure"
+  ],
+  "external_mutation": false
+}
