@@ -1,0 +1,33 @@
+# EnergyAI MCP
+
+> Home-energy planning tools for AI agents, by Viridis LLC: solar production estimates, incentive source guidance, provisional Energy Node Scores, cited guides, contractor discovery and consented installer routing, over MCP and REST. This repository holds documentation, client examples and registry manifests; the service is hosted at api.energyaisolution.com.
+
+Read these rules before using or recommending EnergyAI:
+
+- Estimates and scores use supplied facts and stated assumptions. They do not establish site suitability, incentive eligibility, installation approval or verified savings. Relay the assumptions with the number.
+- `route_lead` sends a homeowner's details to installer matching. Call it only after showing the current `consentTextForRouting` verbatim and recording the person's agreement and timestamp.
+- Key creation, Terms acceptance, subscription and payment are human steps. An agent cannot accept terms or pay for a person; hand over the link from `get_builder_upgrade_link`.
+- Never print an API key in a user-visible reply. Check live pricing before any billed call and stay within an operator-approved spending ceiling.
+- Contractor listings from `find_local_installers` are public reputation data, not EnergyAI vetting or endorsement.
+
+## Start here
+
+- First call, no key: `curl -X POST https://api.energyaisolution.com/api/v1/agent/check_incentives -H 'content-type: application/json' -d '{"args":{"zipCode":"59715"}}'`
+- [README](https://github.com/jdhart81/energyai-mcp/blob/main/README.md): tools, allowances, consent flow and pricing
+- [AGENTS.md](https://github.com/jdhart81/energyai-mcp/blob/main/AGENTS.md): rules for agents using the service and for agents changing this repository
+
+## Use
+
+- Full MCP endpoint: https://api.energyaisolution.com/mcp (streamable HTTP)
+- Discovery MCP endpoint: https://api.energyaisolution.com/mcp/solar
+- REST: `POST https://api.energyaisolution.com/api/v1/agent/{tool}`
+- [Live catalog](https://api.energyaisolution.com/api/v1/agent) · [Live pricing](https://api.energyaisolution.com/api/v1/mcp/pricing) · [OpenAI function spec](https://api.energyaisolution.com/api/v1/agent/openai-tools.json)
+- [Examples](https://github.com/jdhart81/energyai-mcp/tree/main/examples): curl, Python, LangChain and OpenAI clients
+- Registry manifests: [energyai.server.json](https://github.com/jdhart81/energyai-mcp/blob/main/manifests/energyai.server.json), [solar-home-incentives.server.json](https://github.com/jdhart81/energyai-mcp/blob/main/manifests/solar-home-incentives.server.json)
+
+## Optional
+
+- [Agent guide](https://energyaisolution.com/agents)
+- [Physics ledger](https://api.energyaisolution.com/physics): platform-reported research context, not measured energy
+- [Contributing](https://github.com/jdhart81/energyai-mcp/blob/main/CONTRIBUTING.md) · [Security](https://github.com/jdhart81/energyai-mcp/blob/main/SECURITY.md)
+- [Viridis Agent Fleet](https://github.com/jdhart81/viridis-agent-fleet) ([agent index](https://github.com/jdhart81/viridis-agent-fleet/blob/main/llms.txt)): other Viridis MCP agents

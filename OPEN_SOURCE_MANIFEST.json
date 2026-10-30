@@ -10,6 +10,8 @@
     ".gitleaks.toml",
     "LICENSE",
     "README.md",
+    "llms.txt",
+    "AGENTS.md",
     "CONTRIBUTING.md",
     "SECURITY.md",
     "TRADEMARKS.md",
