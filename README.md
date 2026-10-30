@@ -17,6 +17,7 @@ This requests incentive source guidance for a US ZIP. For a production estimate,
 - **Discovery MCP endpoint:** `https://api.energyaisolution.com/mcp/solar`
 - **REST:** `POST https://api.energyaisolution.com/api/v1/agent/{tool}`
 - **[Agent guide](https://energyaisolution.com/agents)** · **[Live catalog](https://api.energyaisolution.com/api/v1/agent)** · **[Live prices](https://api.energyaisolution.com/api/v1/mcp/pricing)**
+- **For agents:** [`llms.txt`](llms.txt) is the short index; [`AGENTS.md`](AGENTS.md) holds the consent, key and pricing rules agents must follow.
 - **Official MCP Registry:** [`com.energyaisolution/energyai`](https://registry.modelcontextprotocol.io/v0.1/servers/com.energyaisolution%2Fenergyai/versions/latest) · [`com.energyaisolution/solar-home-incentives`](https://registry.modelcontextprotocol.io/v0.1/servers/com.energyaisolution%2Fsolar-home-incentives/versions/latest)
 
 ## No-key tools and allowances
