@@ -18,7 +18,8 @@
     "CODE_OF_CONDUCT.md",
     "OPEN_SOURCE_MANIFEST.json",
     "examples/**",
-    "manifests/**"
+    "manifests/**",
+    "scripts/**"
   ],
   "exclude": [
     "**/.env",

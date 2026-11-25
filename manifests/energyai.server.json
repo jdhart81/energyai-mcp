@@ -1,12 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.energyaisolution/energyai",
-  "description": "Solar, weatherization, EV charging, battery and heat-pump decision tools for AI agents.",
+  "description": "Solar, heat pump and battery decisions for agents: incentives, estimates, quote review, installers",
   "repository": {
     "url": "https://github.com/jdhart81/energyai-mcp",
     "source": "github"
   },
-  "version": "1.3.0",
+  "version": "1.3.1",
   "websiteUrl": "https://energyaisolution.com/agents",
   "remotes": [
     {
@@ -14,11 +14,35 @@
       "url": "https://api.energyaisolution.com/mcp",
       "headers": [
         {
-          "description": "Optional Bearer key. Start with 20 anonymous informational calls/24h; free key: 100/30d. Operator-authorized activation includes three eligible commercial trials on the full endpoint. Builder: $19/month with $20 tool credit. Live pricing and supported jobs: /agents.",
+          "description": "16 tools free with no key (20 calls a day for the 5 informational ones), or a free key for 100 calls a month and 7 more free tools. 11 paid tools cost $0.02 to $1.00 per call from a prepaid balance starting at $5.",
           "isSecret": true,
           "name": "Authorization"
         }
       ]
     }
-  ]
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "keywords": [
+        "energy",
+        "solar",
+        "heat pump",
+        "battery",
+        "home electrification",
+        "incentives",
+        "tax credits",
+        "quote review",
+        "installers",
+        "weatherization"
+      ],
+      "toolCount": {
+        "total": 34,
+        "noKey": 16,
+        "freeWithKey": 7,
+        "paid": 11
+      },
+      "priceLine": "16 tools free with no key (20 calls a day for the 5 informational ones), or a free key for 100 calls a month and 7 more free tools. 11 paid tools cost $0.02 to $1.00 per call from a prepaid balance starting at $5.",
+      "longDescription": "EnergyAI helps an agent answer a homeowner's energy questions and act on them. Check solar, heat pump, battery and weatherization incentives by state and ZIP, estimate solar production, read 98 plain-language guides, find local installers, and send a homeowner to an independent human review of their installer quote. 34 tools in all: 16 work with no key, 7 more are free with a free key. 11 paid tools, from $0.02 to $1.00 per call, add a full power screen, project roadmaps and installer quote review. Remote server over Streamable HTTP: claude mcp add --transport http energyai https://api.energyaisolution.com/mcp"
+    }
+  }
 }
