@@ -4,7 +4,7 @@
 
 EnergyAI helps an agent answer a homeowner's energy questions and act on them. Check solar, heat pump, battery and weatherization incentives by state and ZIP, estimate solar production, read 98 plain-language guides, find local installers, and send a homeowner to an independent human review of their installer quote. 34 tools in all: 16 work with no key, 7 more are free with a free key. 11 paid tools, from $0.02 to $1.00 per call, add a full power screen, project roadmaps and installer quote review. Remote server over Streamable HTTP: claude mcp add --transport http energyai https://api.energyaisolution.com/mcp
 
-The public catalog supports solar, weatherization, EV charging, home batteries and heat-pump planning. 16 tools need no key to start. Estimates and scores use supplied facts and stated assumptions; they do not establish site suitability, incentive eligibility, installation approval or verified savings.
+The public catalog supports solar, weatherization, EV charging, home batteries and heat-pump planning. 17 tools need no key to start. Estimates and scores use supplied facts and stated assumptions; they do not establish site suitability, incentive eligibility, installation approval or verified savings.
 
 ## Your first call — no key
 
@@ -25,9 +25,9 @@ This requests incentive source guidance for a US ZIP. For a production estimate,
 ## Tools, allowances and prices
 
 <!-- tool-count:start (must equal the live server; scripts/check-listing.mjs enforces it) -->
-**34 tools:** 16 work with no key (5 informational tools share the anonymous allowance; 11 are always free), 7 more are free with a free key, and 11 are paid.
+**35 tools:** 17 work with no key (6 informational tools share the anonymous allowance; 11 are always free), 7 more are free with a free key, and 11 are paid.
 
-16 tools free with no key (20 calls a day for the 5 informational ones), or a free key for 100 calls a month and 7 more free tools. 11 paid tools cost $0.02 to $1.00 per call from a prepaid balance starting at $5.
+17 tools free with no key (20 calls a day for the 6 informational ones), or a free key for 100 calls a month and 7 more free tools. 11 paid tools cost $0.02 to $1.00 per call from a prepaid balance starting at $5.
 <!-- tool-count:end -->
 
 ### No key: informational tools
@@ -41,6 +41,7 @@ The five informational tools share **20 anonymous calls per caller per 24 hours*
 | `get_node_score` | A provisional seven-axis score and next action from supplied property facts. |
 | `list_guides` | US home-energy guides by state and topic, with sources and canonical links. |
 | `get_guide` | One source-cited guide by returned slug. |
+| `check_quote_red_flags` | Free automated check of an installer quote's key numbers: up to 5 red flags with questions for the installer, a summary for the homeowner, and the $49 Quote Guardian human review as the next step. Never a sign-off. |
 
 ### No key: 11 always-free tools
 
@@ -129,7 +130,7 @@ The [physics ledger](https://api.energyaisolution.com/physics) presents platform
 
 ## Manifests
 
-Both manifests in [`manifests/`](manifests/) describe **v1.3.1**. The official registry still lists v1.3.0 until v1.3.1 is published there; merge this change together with that publication. Registry presence and endpoint responses are availability evidence; they do not establish adoption, paid delivery, repeat use or revenue.
+Both manifests in [`manifests/`](manifests/) describe **v1.4.0**, live since 2026-11-25. The official registry still lists v1.3.0 until v1.4.0 is published there; merge this change together with that publication. Registry presence and endpoint responses are availability evidence; they do not establish adoption, paid delivery, repeat use or revenue.
 
 This repository contains documentation and client examples. The service is hosted separately; merging these files does not publish a registry version, deploy the service or activate a customer account.
 
