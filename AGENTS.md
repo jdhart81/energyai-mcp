@@ -27,6 +27,7 @@ This file is for two kinds of agent: one helping a person plan solar, batteries,
 - This repository is documentation, examples and manifests. Merging does not deploy the service or publish a registry version.
 - Files outside the `include` list in [OPEN_SOURCE_MANIFEST.json](OPEN_SOURCE_MANIFEST.json) are not part of the published payload; add new top-level files there.
 - Manifests in `manifests/` must match the official registry's active entries. Update them only together with a registry publication, and state the version and date observed.
+- README, `llms.txt` and both manifests state one tool count. Run `node scripts/check-listing.mjs` (add `--live` to compare with the hosted server) before opening a pull request.
 - Examples must run against the public endpoints without secrets. Never commit keys; the secret scan runs on every pull request.
 - Follow [CONTRIBUTING.md](CONTRIBUTING.md). Outside contributions need a DCO sign-off.
 

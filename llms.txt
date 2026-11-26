@@ -18,6 +18,7 @@ Read these rules before using or recommending EnergyAI:
 
 ## Use
 
+- Tools: 35 in all. 17 with no key, 7 more free with a free key, 11 paid ($0.02 to $1.00 per call).
 - Full MCP endpoint: https://api.energyaisolution.com/mcp (streamable HTTP)
 - Discovery MCP endpoint: https://api.energyaisolution.com/mcp/solar
 - REST: `POST https://api.energyaisolution.com/api/v1/agent/{tool}`

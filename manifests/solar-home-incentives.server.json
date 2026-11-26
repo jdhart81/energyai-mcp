@@ -6,7 +6,7 @@
     "url": "https://github.com/jdhart81/energyai-mcp",
     "source": "github"
   },
-  "version": "1.3.0",
+  "version": "1.4.0",
   "websiteUrl": "https://energyaisolution.com/agents",
   "remotes": [
     {
@@ -20,5 +20,27 @@
         }
       ]
     }
-  ]
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "keywords": [
+        "energy",
+        "solar",
+        "heat pump",
+        "battery",
+        "home electrification",
+        "incentives",
+        "tax credits",
+        "quote review",
+        "installers",
+        "weatherization"
+      ],
+      "toolCount": {
+        "total": 17,
+        "noKey": 17,
+        "freeWithKey": 0,
+        "paid": 0
+      }
+    }
+  }
 }

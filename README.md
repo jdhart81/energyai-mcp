@@ -1,8 +1,10 @@
 # EnergyAI MCP — energy planning tools for AI agents
 
-**Solar estimates, incentive sources, provisional Energy Node Scores, cited guides, contractor discovery and consented installer routing — through MCP and REST.** By [Viridis LLC](https://energyaisolution.com).
+**Solar, heat pump and battery decisions for agents: incentives, estimates, quote review, installers.** By [Viridis LLC](https://energyaisolution.com).
 
-The public catalog supports solar, weatherization, EV charging, home batteries and heat-pump planning. Twelve tools need no key to start. Estimates and scores use supplied facts and stated assumptions; they do not establish site suitability, incentive eligibility, installation approval or verified savings.
+EnergyAI helps an agent answer a homeowner's energy questions and act on them. Check solar, heat pump, battery and weatherization incentives by state and ZIP, estimate solar production, read 98 plain-language guides, find local installers, and send a homeowner to an independent human review of their installer quote. 34 tools in all: 16 work with no key, 7 more are free with a free key. 11 paid tools, from $0.02 to $1.00 per call, add a full power screen, project roadmaps and installer quote review. Remote server over Streamable HTTP: claude mcp add --transport http energyai https://api.energyaisolution.com/mcp
+
+The public catalog supports solar, weatherization, EV charging, home batteries and heat-pump planning. 17 tools need no key to start. Estimates and scores use supplied facts and stated assumptions; they do not establish site suitability, incentive eligibility, installation approval or verified savings.
 
 ## Your first call — no key
 
@@ -20,7 +22,15 @@ This requests incentive source guidance for a US ZIP. For a production estimate,
 - **For agents:** [`llms.txt`](llms.txt) is the short index; [`AGENTS.md`](AGENTS.md) holds the consent, key and pricing rules agents must follow.
 - **Official MCP Registry:** [`com.energyaisolution/energyai`](https://registry.modelcontextprotocol.io/v0.1/servers/com.energyaisolution%2Fenergyai/versions/latest) · [`com.energyaisolution/solar-home-incentives`](https://registry.modelcontextprotocol.io/v0.1/servers/com.energyaisolution%2Fsolar-home-incentives/versions/latest)
 
-## No-key tools and allowances
+## Tools, allowances and prices
+
+<!-- tool-count:start (must equal the live server; scripts/check-listing.mjs enforces it) -->
+**35 tools:** 17 work with no key (6 informational tools share the anonymous allowance; 11 are always free), 7 more are free with a free key, and 11 are paid.
+
+17 tools free with no key (20 calls a day for the 6 informational ones), or a free key for 100 calls a month and 7 more free tools. 11 paid tools cost $0.02 to $1.00 per call from a prepaid balance starting at $5.
+<!-- tool-count:end -->
+
+### No key: informational tools
 
 The five informational tools share **20 anonymous calls per caller per 24 hours**. A free key includes **100 informational calls per rolling 30 days**. Sustained informational use requires an active Builder subscription; prepaid credit funds priced commercial tools.
 
@@ -31,8 +41,9 @@ The five informational tools share **20 anonymous calls per caller per 24 hours*
 | `get_node_score` | A provisional seven-axis score and next action from supplied property facts. |
 | `list_guides` | US home-energy guides by state and topic, with sources and canonical links. |
 | `get_guide` | One source-cited guide by returned slug. |
+| `check_quote_red_flags` | Free automated check of an installer quote's key numbers: up to 5 red flags with questions for the installer, a summary for the homeowner, and the $49 Quote Guardian human review as the next step. Never a sign-off. |
 
-These seven tools remain free without a key:
+### No key: 11 always-free tools
 
 | Tool | What you get |
 |---|---|
@@ -43,6 +54,38 @@ These seven tools remain free without a key:
 | `create_builder_key` | A production key after the human operator has authorized the Terms and Privacy Policy. |
 | `get_builder_upgrade_link` | A human activation, Builder or prepaid handoff; the caller cannot accept terms or pay for the human. |
 | `find_local_installers` | Public-reputation contractor options. Public listings do not imply EnergyAI vetting, endorsement or partnership. |
+| `energy_calendar` | Energy Odds (paper mode): upcoming target dates for three public EIA numbers and whether a forecast is logged. |
+| `energy_forecast` | Energy Odds: the forecast logged in advance for a series and target date, with quantiles and a verifiable hash. |
+| `energy_track_record` | Energy Odds public scores (Brier, CRPS, calibration) against two simple baselines. |
+| `verify_forecast` | Recomputes the hash chain for one forecast and reports whether it was logged before its cutoff. |
+
+### Free with a free key (7)
+
+| Tool | What you get |
+|---|---|
+| `create_energy_assessment` | Starts a guided assessment and returns an `assessmentId`. |
+| `answer_energy_assessment_question` | Records one answer and returns the next question. |
+| `complete_energy_assessment` | Finalizes an assessment and starts the recommendation workflow. |
+| `create_energy_node_roadmap_checkout` | A homeowner-facing checkout link for the full roadmap. |
+| `get_eta_i_metric` | The platform intelligence-efficiency metric. |
+| `record_quote_review_outcome` | Records operator-confirmed usefulness of a completed quote review. |
+| `submit_contractor_match_request` | A consented installer lead for a completed assessment. |
+
+### Paid (11), per call from prepaid balance
+
+| Tool | Price |
+|---|---|
+| `get_energy_incentives` | $0.02 |
+| `generate_energy_recommendation_preview` | $0.05 |
+| `get_energy_node_score` | $0.05 |
+| `match_installers` | $0.05 |
+| `bootstrap_energy_project` | $0.10 |
+| `get_energy_node_roadmap` | $0.10 |
+| `review_installer_quote` | $0.10 |
+| `generate_intelligence_bound_report` | $0.25 |
+| `get_information_theoretic_recommendation` | $0.25 |
+| `run_power_screen` | $1.00 |
+| `get_anonymized_dataset_sample` | $1.00 |
 
 Hourly safety limits also apply: 120 calls per caller, with `route_lead` limited to 10 per hour. Read each tool's schema and consent requirements before submitting information or requesting a key.
 
@@ -87,7 +130,7 @@ The [physics ledger](https://api.energyaisolution.com/physics) presents platform
 
 ## Manifests
 
-Both manifests in [`manifests/`](manifests/) match the official registry's active latest **v1.3.0** entries observed on **October 7, 2026**. The live catalog also reports v1.3.0. Registry presence and endpoint responses are availability evidence; they do not establish adoption, paid delivery, repeat use or revenue.
+Both manifests in [`manifests/`](manifests/) describe **v1.4.0**, live since 2026-11-25. The official registry still lists v1.3.0 until v1.4.0 is published there; merge this change together with that publication. Registry presence and endpoint responses are availability evidence; they do not establish adoption, paid delivery, repeat use or revenue.
 
 This repository contains documentation and client examples. The service is hosted separately; merging these files does not publish a registry version, deploy the service or activate a customer account.
 
